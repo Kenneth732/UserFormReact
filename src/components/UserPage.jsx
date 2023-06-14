@@ -17,7 +17,10 @@ function UserPage(){
             headers: {
                 "Content-Type" : "application/json"
             },body:JSON.stringify(newUser)
-        }).
+        }).then((res) => res.json())
+        .then((addedUser) => {
+            setUserData((prevUser) => [...prevUser, addedUser])
+        })
     }
     return(
         <div></div>
