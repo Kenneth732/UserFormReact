@@ -9,7 +9,9 @@ function UserPage(){
         .then((userArrays) => {
             setUserData(userArrays)
         })
-    })
+    }, []);
+
+    const handleAddUser = (newUser) => {}
     return(
         <div></div>
     )
