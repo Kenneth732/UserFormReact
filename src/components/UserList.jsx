@@ -6,8 +6,9 @@ function UserList({
  }){
     return(
         <div>
+            <h2>user list</h2>
             {userDatas.map((user) => {
-                return <UserCard key={user.id} users={user} />
+                return <UserCard key={user.id} users={user} onRemoveUser={onRemoveUser} />
             })}
         </div>
     )
