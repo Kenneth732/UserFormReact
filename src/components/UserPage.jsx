@@ -7,7 +7,7 @@ function UserPage(){
         fetch('')
         .then((res) => res.json())
         .then((userArrays) => {
-            
+            setUserData(userArrays)
         })
     })
     return(
