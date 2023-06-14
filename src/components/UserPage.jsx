@@ -22,6 +22,8 @@ function UserPage(){
             setUserData((prevUser) => [...prevUser, addedUser])
         })
     }
+
+    
     return(
         <div></div>
     )
