@@ -23,14 +23,19 @@ function UserPage(){
         })
     }
 
-    const handleDelete = (id) => {
-        fetch(`http://localhost:3000/userData/${id}`, {
-            method: 'DELETE',
-        }).then((res) => res.json())
-        .then(() => {
-            setUserData((prevUser) => prevUser.filter((user) => user.id !==id))
+    const handleDeleteUser = (id) => {
+        fetch(`http://localhost:3000/animalData/${id}`, {
+          method: "DELETE",
         })
-    }
+          .then(() => {
+            setAnimalData((prevData) =>
+              prevData.filter((animal) => animal.id !== id)
+            );
+          })
+          .catch((error) => {
+            console.log("Error deleting animal:", error);
+          });
+      };
     return(
         <div></div>
     )
