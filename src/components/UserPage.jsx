@@ -4,7 +4,7 @@ function UserPage(){
     const [userData, setUserData] = useState([])
 
     useEffect(() => {
-        fetch('')
+        fetch('http://localhost:3000/userData')
         .then((res) => res.json())
         .then((userArrays) => {
             setUserData(userArrays)
@@ -12,7 +12,7 @@ function UserPage(){
     }, []);
 
     const handleAddUser = (newUser) => {
-        fetch('', {
+        fetch('http://localhost:3000/userData', {
             method: 'POST',
             headers: {
                 "Content-Type" : "application/json"
@@ -23,7 +23,14 @@ function UserPage(){
         })
     }
 
-    
+    const handleDelete = (id) => {
+        fetch(`http://localhost:3000/userData/${id}`, {
+            method: 'DELETE',
+        }).then((res) => res.json())
+        .then(() => {
+            setUserData((prevUser) => prevUser.filter((user) => user.id !==id))
+        })
+    }
     return(
         <div></div>
     )
