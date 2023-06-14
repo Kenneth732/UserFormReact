@@ -1,8 +1,15 @@
 import React from "react";
+import UserCard from "./UserCard";
 
-function UserList(){
+function UserList({ 
+    onRemoveUser, userDatas
+ }){
     return(
-        <div></div>
+        <div>
+            {userDatas.map((user) => {
+                return <UserCard key={user.id} users={user} />
+            })}
+        </div>
     )
 }
 export default UserList;

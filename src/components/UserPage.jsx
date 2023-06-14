@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import UserList from "./UserList";
+import UserForm from "./UserForm";
 
 function UserPage(){
     const [userData, setUserData] = useState([])
@@ -24,7 +26,7 @@ function UserPage(){
     }
 
     const handleDeleteUser = (id) => {
-        fetch(`http://localhost:3000/animalData/${id}`, {
+        fetch(`http://localhost:3000/userData/${id}`, {
           method: "DELETE",
         })
           .then(() => {
@@ -37,7 +39,10 @@ function UserPage(){
           });
       };
     return(
-        <div></div>
+        <div>
+            <UserForm onAddUser={handleAddUser} />
+            <UserList onRemoveUser={handleDeleteUser} userDatas={userData} />
+        </div>
     )
 }
 export default UserPage;
